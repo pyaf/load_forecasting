@@ -34,6 +34,7 @@ for year in year_range:
 					if os.path.exists(csv_filename): os.remove(csv_filename) # remove the file it already exists, can result in data duplicacy
 					with open(csv_filename, 'a') as f:
 						writer = csv.writer(f)
+						writer.writerow(['time', 'value'])
 						for tr in trs[1:]:
 							time, delhi = tr.findChildren('font')[:2]
 							writer.writerow([time.text, delhi.text])

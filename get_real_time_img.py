@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
-base_url = 'https://www.delhisldc.org'
 
+base_url = 'https://www.delhisldc.org'
 url = base_url + '/Loadcurve.aspx'
 
 resp = requests.get(url)
