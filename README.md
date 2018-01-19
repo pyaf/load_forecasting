@@ -1,5 +1,6 @@
 # Load and Price Forcasting
-Source code for Btech Project on Load and Price forcasting.
+
+Btech Project on Load and Price forcasting.
 
 ### Code
 
