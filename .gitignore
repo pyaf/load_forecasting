@@ -5,6 +5,8 @@ __pycache__/
 others
 # C extensions
 *.so
+*.csv
+*.html
 .ipynb_checkpoints
 # Distribution / packaging
 .Python
