@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 others
+server/redis-4.0.8/
+server/*.gz
 SLDC_Data
 Whether_Data
 # C extensions

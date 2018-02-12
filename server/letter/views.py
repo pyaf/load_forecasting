@@ -48,7 +48,8 @@ def cal(request):
             for x in query_results[i]:
                 q.append(x.load_value)
             last.append(q)
-        for x in query_results[1]:
+            # print(query_results)
+        for x in query_results[0]:
             hour = x.timestamp.hour
             minutes = x.timestamp.minute
             t.append(str(hour)+':'+str(minutes))
