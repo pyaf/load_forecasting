@@ -1,7 +1,7 @@
 
 import sys,os
-your_djangoproject_home="django18"
-sys.path.append(your_djangoproject_home)
+djangoproject_home="django18"
+sys.path.append(djangoproject_home)
 os.environ['DJANGO_SETTINGS_MODULE'] = 'django18.settings'
 from .models import CSV
 import csv,datetime

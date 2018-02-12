@@ -7,9 +7,23 @@ import json
 
 # Create your views here.
 # from .forms import CSVForm
+import requests
+import csv
+import os
+from bs4 import BeautifulSoup
+
+
+
 def home(request):
-    print("adscvadsfvadsfvadsfa");
-    return render(request, "home.html", {})
+    print("adscvadsfvadsfvadsfa")
+    print("date dekh le bhai",datetime.date.today().day)
+    day = datetime.date.today().day
+    month = datetime.date.today().month
+    year = datetime.date.today().year
+    return render(request, "home.html", {'Day': str(day).zfill(2),
+                                        'Month': str(month).zfill(2),
+                                        'Year': year})
+
     
 
 def cal(request):
