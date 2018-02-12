@@ -5,6 +5,7 @@ __pycache__/
 others
 server/redis-4.0.8/
 server/*.gz
+server/db.sqlite3
 SLDC_Data
 Whether_Data
 # C extensions
