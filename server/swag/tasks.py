@@ -22,7 +22,7 @@ import csv,datetime
 
 size=1
 
-@periodic_task(run_every=(crontab(minute=0, hour='*/1')), name="reload_task", ignore_result=True)
+@periodic_task(run_every=(crontab(minute=40, hour='0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23')), name="reload_task", ignore_result=True)
 def reload_task():
 	global size
 	print("date dekh le bhai",datetime.date.today().day)
