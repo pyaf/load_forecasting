@@ -1,0 +1,16 @@
+amqp==1.4.9
+anyjson==0.3.3
+beautifulsoup4==4.6.0
+billiard==3.3.0.23
+bs4==0.0.1
+celery==3.1.18
+certifi==2018.1.18
+chardet==3.0.4
+Django==1.8
+idna==2.6
+kombu==3.0.37
+lxml==4.1.1
+pytz==2018.3
+redis==2.10.3
+requests==2.18.4
+urllib3==1.22

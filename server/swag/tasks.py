@@ -1,6 +1,7 @@
 from celery.task.schedules import crontab
 from celery.decorators import periodic_task
 
+from random import randint
 # Create your views here.
 # from .forms import CSVForm
 
@@ -22,7 +23,7 @@ import csv,datetime
 
 size=1
 
-@periodic_task(run_every=(crontab(minute=0, hour='*/1')), name="reload_task", ignore_result=True)
+@periodic_task(run_every=(crontab(minute=40, hour='0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23')), name="reload_task", ignore_result=True)
 def reload_task():
 	global size
 	print("date dekh le bhai",datetime.date.today().day)
@@ -56,10 +57,22 @@ def reload_task():
 	                    if os.path.exists(csv_filename): os.remove(csv_filename) # remove the file it already exists, can result in data duplicacy
 	                    with open(csv_filename, 'a') as f:
 	                        writer = csv.writer(f)
-	                        writer.writerow(['x', 'y'])
+	                        writer.writerow(['x', 'y','predicted_val'])
 	                        for tr in trs[1:]:
 	                            time, delhi = tr.findChildren('font')[:2]
-	                            writer.writerow([time.text, delhi.text])
+	                            t = (time.text).split(':')
+	                            TimE = datetime.time(int(t[0]),int(t[1]))
+	                            writer.writerow([str(TimE), delhi.text,randint(2000,2800)])
+	                        if(str(TimE) != '23:55:00'):
+	                        	print('............................................')
+	                        	x = str(TimE)
+	                        	while(x != '23:55:00'):
+	                        		tym = x.split(':')
+	                        		Time = datetime.time(int(tym[0]),int(tym[1]))
+	                        		TIME = (datetime.datetime.combine(datetime.date(1,1,1),Time)+timedelta(minutes=5)).time()
+	                        		# print((datetime.datetime.combine(datetime.date(1,1,1),Time)+timedelta(minutes=5)).time())
+	                        		writer.writerow([TIME,'None',randint(3000,3600)])
+	                        		x = str(TIME)
 	        except Exception as e:
 	            print(e)
 
@@ -75,6 +88,8 @@ def reload_task():
 	for row in rows[size:len(rows)+1]:
 		print("inside 2")
 		data = CSV()
+		if(row[1]=='None'):
+			break
 		data.timestamp = row[0]
 		data.load_value = row[1]
 		data.date = datetime.date(datetime.date.today().year,datetime.date.today().month,datetime.date.today().day)
