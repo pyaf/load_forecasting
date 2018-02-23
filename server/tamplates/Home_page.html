@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <style>
+  body {
+      background-color: lightblue;
+  }
+  h1 {
+      color: purple;
+      text-align: center;
+  }
+  p {
+      font-family: verdana;
+      font-size: 25px;
+  }
+  .c3-axis-y-label {
+    font-size: 16px;
+    fill: gray;
+  }
+  .c3-axis-x-label {
+    font-size: 18px;
+    fill: gray;
+  }
+  </style>
+  <title>Delhi Load Data</title>
+
+<!-- Load c3.css -->
+<link href="/static/c3-0.4.18/c3.css" rel="stylesheet">
+<!-- Load d3.js and c3.js -->
+<script src="/static/c3-0.4.18/d3.v3.min.js" charset="utf-8"></script>
+<script src="/static/c3-0.4.18/c3.min.js"></script>
+</head>
+
+<body >
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <a class="navbar-brand" href="#">Load and Price Forcasting</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+  </div>
+        <span class="navbar-text">
+        {% if request.user.is_authenticated %}
+        <p>Welcome {{user.first_name}}!</p>
+        <!-- <a class="nav-link " href="/logout">Logout</a> -->
+
+        {% else %}
+        <a class="nav-link " href="/form">Login / Register</a>
+        {% endif %}
+    </span>
+</nav>
+<br>
+<h1>Today Delhi's Load Plot</h1>
+<!-- <button id="kp">Sub</button> -->
+<div id ="ope"></div>
+<script>
+let day = "{{Day}}";
+let month ="{{Month}}";
+let year = "{{Year}}";
+console.log(day,month,year);
+console.log("/static/SLDC_Data/"+ year + "/"+ month + "/" + day + "-" + month + "-" + year +".csv")
+$(document).ready(function(){
+    // $('#kp').on('click', function(){
+        console.log("aaaaaaaaaaaaaaaaaooooooooooooooooooooooooooooooo");
+        let load = data;
+        //   let datee = (parseInt(tarikh[8]+tarikh[9]) + i).toString() + '-' + tarikh[5]+tarikh[6] +'-'+tarikh[0]+tarikh[1]+tarikh[2]+tarikh[3];
+        var chart = c3.generate({
+          bindto: '#ope',
+          data: {
+            x: 'x',
+            url:"/static/SLDC_Data/"+ year + "/"+ month + "/" + day + "-" + month + "-" + year +".csv",
+            xFormat: '%H:%M:%S',
+          },
+          legend: {
+            hide: true
+            //or hide: 'data1'
+            //or hide: ['data1', 'data2']
+          },
+          axis: {
+            y: {
+              label:{
+                text:'POWER IN MW',
+                position: 'outer-middle',
+              },
+            },
+            x: {
+              label:{
+                text: 'Time',
+                position:'outer-center',
+              },
+              type: 'timeseries',
+              tick:{
+                format:'%H:%M:%S'
+              }
+            }
+          },
+          zoom: {
+            enabled:true,
+            rescale:true,
+            extent: [1, 100],
+          },
+          grid: {
+            x: {
+              show: true,
+            },
+            y: {
+              show: true,
+            },
+          },
+      });
+    // });
+ });
+</script>
+<!-- </form> -->
+<!-- <form action="" method="get">
+  <label for="GET-name">Name:</label>
+  <input id="GET-name" type="text" name="name">
+  <input type="submit" value="Save">
+</form> -->
+
+<!-- <form method='post' action ="">{% csrf_token %}
+  From:
+  <input type="date" name="from" required="true">
+  To:
+  <input type="date" name="to" required="true">
+  <input type="submit" value="submit"/>
+</form -->
+<!-- <form> -->
+<br>
+<h1> Datewise Delhi Load Plots</h1>
+<p>From:<input type="date" id="from" required="true">
+To:<input type="date" id="to" required="true">
+<button id="ddd">Submit</button></p>
+<!-- </form> -->
+
+<div id="d">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">       </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">      </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">      </script>
+  <script src = "/static/jquery-3.3.1.js"></script>
+<script src = "/static/main.js"></script>
+
+</div>
+<!-- <script>
+function load() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("d").innerHTML = this.responseText;
+    }
+  };
+  console.log("audshsjbhakjbdsbdsvhds            8888888888 ");
+  xhttp.open("GET", "/gfdgfdg/", true);
+  xhttp.setRequestHeader("X-CSRFToken", '{{ csrf_token }}')
+  // xhttp.setRequestHeader("X-CSRFToken", csrftoken)
+  xhttp.send();
+}
+</script> -->
+
+<!-- <table border = '1'>
+    <tr>
+        <th><h3>Timestamp</h3></th>
+        <th><h3>Load_value</h3></th>
+        <th><h3>Date</h3></th>
+    </tr>
+    {% for item in query_results %}
+    <tr>
+        <td>{{ item.timestamp }}</td>
+        <td>{{item.load_value}}
+        <td>{{ item.date }}</td>
+    </tr>
+    {% endfor %}
+</table> -->
+
+<!-- <div id="demo">
+<h3>The XMLHttpRequest Object</h3>
+<button type="button" onclick="loadDoc()">Change Content</button>
+</div>
+
+
+
+</body>
+</html>
