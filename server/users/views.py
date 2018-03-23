@@ -10,7 +10,7 @@ def FormView(request):
     return render(request, template_name)
 
 def LoginView(request):
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         return redirect('/')
 
     template_name = 'form.html'
@@ -32,7 +32,7 @@ def LoginView(request):
 
 
 def RegistrationView(request):
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         return redirect('/')
     template_name = 'form.html'
     if request.method == "POST":

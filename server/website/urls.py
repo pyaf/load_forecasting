@@ -12,5 +12,5 @@ urlpatterns = [
     url(r'^register/$', RegistrationView, name='form_page'),
     url(r'^logout/$', LogoutView),
     url(r'^show_data/', graph_plot ,name = 'graph_plot'),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
 ]
