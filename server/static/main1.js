@@ -1,11 +1,11 @@
-$('#ddd').on('click', function() {
-  var gape = {
-    "from": $("#from").val(),
-    "to": $("#to").val(),
+$('#dddd').on('click', function() {
+  var gap = {
+    "fc": $("#fc").val(),
+    // to: $("#to").val(),
   };
   console.log("adsfadsfdff");
-  // console.log(gape);
-  // console.log(gape.from);
+  console.log(gap);
+  console.log(gap.fc);
   var csrftoken = getCookie('csrftoken');
   $.ajaxSetup({
     beforeSend: function(xhr, settings) {
@@ -14,27 +14,27 @@ $('#ddd').on('click', function() {
   });
   $.ajax({
     type: 'POST',
-    url: '/show_data/',
-    data: gape,
+    url: '/show_forecasted_smavg_data/',
+    data: gap,
     success: function(x){
       console.log(x);
-      fun(x);
+      fun1(x);
     },
   });
 });
 
-const fun  = function(da){
-        console.log('asdgf',da);
+const fun1  = function(data){
+        console.log('asdgf',data);
         console.log("ooooooooooooooooooooooooooooooo");
-        let load = da;
-        console.log(load.Load);
+        let load = data;
+        console.log(load.forecasted_Load);
         //   let datee = (parseInt(tarikh[8]+tarikh[9]) + i).toString() + '-' + tarikh[5]+tarikh[6] +'-'+tarikh[0]+tarikh[1]+tarikh[2]+tarikh[3];
         var chart = c3.generate({
-          bindto: '#d',
+          bindto: '#Forecasting',
           data: {
             x: 'x',
             xFormat:'%H:%M',
-            columns: load.Load,
+            columns: load.forecasted_Load,
           },
           axis: {
             y: {
