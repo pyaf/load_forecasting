@@ -24,6 +24,6 @@ for year in year_range:
 					link = "static/SLDC_Data/"+str(year)+"/"+str(month).zfill(2)+"/"+str(a).zfill(2)+"-"+str(month).zfill(2)+"-"+str(year)+".csv"
 					dataReader = csv.reader(open(link), delimiter=',', quotechar='"')
 					for row in dataReader:
-						data = CSV.objects.create(timestamp = row[0], load_value = row[1], date = datetime.date(2018,3,a))
+						data = CSV.objects.create(timestamp = row[0], load_value = row[1], date = datetime.date(year,month,a))
 				except Exception as e:
 					print(e)
