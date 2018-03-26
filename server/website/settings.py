@@ -29,7 +29,7 @@ SECRET_KEY = '+p$27f(+3^om9=$*&%k-0k+a7a5_(ibh2wa8&c_3_29b=$xadg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
