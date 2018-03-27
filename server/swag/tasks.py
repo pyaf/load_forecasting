@@ -23,7 +23,7 @@ import csv,datetime
 
 # @periodic_task(run_every=(crontab(minute='*/1')), name="update_database", ignore_result=True)
 
-size=1
+size=0
 
 @periodic_task(run_every=(crontab(minute=40, hour='0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23')), name="reload_task", ignore_result=True)
 def reload_task():
@@ -59,12 +59,12 @@ def reload_task():
 	                    if os.path.exists(csv_filename): os.remove(csv_filename) # remove the file it already exists, can result in data duplicacy
 	                    with open(csv_filename, 'a') as f:
 	                        writer = csv.writer(f)
-	                        writer.writerow(['x', 'y','predicted_val'])
+	                        # writer.writerow(['x', 'y'])
 	                        for tr in trs[1:]:
 	                            time, delhi = tr.findChildren('font')[:2]
 	                            t = (time.text).split(':')
 	                            TimE = datetime.time(int(t[0]),int(t[1]))
-	                            writer.writerow([str(TimE), delhi.text, randint(2000,2800)])
+	                            writer.writerow([str(TimE), delhi.text])
 	                        size_reduction = 0
 	                        if(str(TimE) != '23:55:00'):
 	                        	print('............................................')
@@ -75,7 +75,7 @@ def reload_task():
 	                        		Time = datetime.time(int(tym[0]),int(tym[1]))
 	                        		TIME = (datetime.datetime.combine(datetime.date(1,1,1),Time)+timedelta(minutes=5)).time()
 	                        		# print((datetime.datetime.combine(datetime.date(1,1,1),Time)+timedelta(minutes=5)).time())
-	                        		writer.writerow([TIME,'None',randint(3000,3600)])
+	                        		writer.writerow([TIME,'None'])
 	                        		x = str(TIME)
 	                        		size_reduction = size_reduction+1
 	        except Exception as e:
