@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+celerybeat*
 others
 server/redis-4.0.8/
 server/*.gz
