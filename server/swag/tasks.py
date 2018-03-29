@@ -25,7 +25,7 @@ import csv,datetime
 
 # size=0
 
-@periodic_task(run_every=(crontab(minute=40, hour='0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23')), name="reload_task", ignore_result=True)
+@periodic_task(run_every=(crontab(minute=55, hour='0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23')), name="reload_task", ignore_result=True)
 def reload_task():
 	# global size
 	print("date dekh le bhai",datetime.date.today().day)
@@ -65,6 +65,7 @@ def reload_task():
 								t = (time.text).split(':')
 								TimE = datetime.time(int(t[0]),int(t[1]))
 								writer.writerow([str(TimE), delhi.text])
+                print(str(TimE))
 
 								results=[]
 								results.append(CSV.objects.filter(date = datetime.date.today(), timestamp = str(TimE)))
@@ -79,26 +80,27 @@ def reload_task():
 									data.date = datetime.date.today()
 									data.save()
 
-							if(datetime.datetime.time(datetime.datetime.now()).hour == 23 and datetime.datetime.time(datetime.datetime.now()).minute >= 40):
+							if(datetime.datetime.time(datetime.datetime.now()).hour == 23 and datetime.datetime.time(datetime.datetime.now()).minute >= 55):
 								print('............................................')
 								# x = '00:00:00'
-								x = datetime.time(0,0)
-								y = datetime.time(23,55)
+								start = datetime.time(0,0)
+								end = datetime.time(23,55)
 								# size_reduction = 0
-								while(x != y):
+								while(start != end):
 									# tym = x.split(':')
 									# Time = datetime.time(int(tym[0]),int(tym[1]))
 									# print((datetime.datetime.combine(datetime.date(1,1,1),Time)+timedelta(minutes=5)).time())
 									blanck_val=[]
-									blanck_val.append(CSV.objects.filter(date = datetime.date.today(), timestamp = str(x)))
+									blanck_val.append(CSV.objects.filter(date = datetime.date.today(), timestamp = str(start)))
 									# print("hhhhhhhhhhheeeee", len(results[0]))
 									if (len(blanck_val[0]) == 0):
 										data = CSV()
-										data.timestamp = str(TimE)
-										data.load_value = None
+										data.timestamp = str(start)
+										data.load_value = 0
 										data.date = datetime.date.today()
 										data.save()
-									x = (datetime.datetime.combine(datetime.date(1,1,1),x)+timedelta(minutes=5)).time()
+										CSV.objects.filter(date = datetime.date.today(), timestamp = str(start)).update(load_value = None)
+									start = (datetime.datetime.combine(datetime.date(1,1,1),start)+timedelta(minutes=5)).time()
 
 			except Exception as e:
 				print(e)
