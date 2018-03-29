@@ -21,7 +21,7 @@ import csv,datetime
 
 # from .views import forecasted_plot
 
-# @periodic_task(run_every=(crontab(minute='*/1')), name="update_database", ignore_result=True)
+# @periodic_task(run_every=(crontab(minute='*/1')), name="update_database", ignore_result=True
 
 # size=0
 
