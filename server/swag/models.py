@@ -4,7 +4,7 @@ from django.db import models
 # import datetime
 class CSV(models.Model):
     timestamp = models.TimeField()
-    load_value = models.FloatField()
+    load_value = models.FloatField(null=True)
     date = models.DateField()
     # statecode = models.CharField(max_length=2)
     # statename = models.CharField(max_length=32)
