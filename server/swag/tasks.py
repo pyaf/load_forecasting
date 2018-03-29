@@ -65,7 +65,7 @@ def reload_task():
 								t = (time.text).split(':')
 								TimE = datetime.time(int(t[0]),int(t[1]))
 								writer.writerow([str(TimE), delhi.text])
-								print(str(TimE))
+                print(str(TimE))
 
 								results=[]
 								results.append(CSV.objects.filter(date = datetime.date.today(), timestamp = str(TimE)))
@@ -95,7 +95,7 @@ def reload_task():
 									# print("hhhhhhhhhhheeeee", len(results[0]))
 									if (len(blanck_val[0]) == 0):
 										data = CSV()
-										data.timestamp = str(TimE)
+										data.timestamp = str(start)
 										data.load_value = 0
 										data.date = datetime.date.today()
 										data.save()
