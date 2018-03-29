@@ -1,12 +1,11 @@
-let data;
 $('#ddd').on('click', function() {
   var gape = {
-    from: $("#from").val(),
-    to: $("#to").val(),
+    "from": $("#from").val(),
+    "to": $("#to").val(),
   };
   console.log("adsfadsfdff");
-  console.log(gape);
-  console.log(gape.from);
+  // console.log(gape);
+  // console.log(gape.from);
   var csrftoken = getCookie('csrftoken');
   $.ajaxSetup({
     beforeSend: function(xhr, settings) {
@@ -24,10 +23,11 @@ $('#ddd').on('click', function() {
   });
 });
 
-const fun  = function(data){
-        console.log('asdgf',data);
+const fun  = function(da){
+        console.log('asdgf',da);
         console.log("ooooooooooooooooooooooooooooooo");
-        let load = data;
+        let load = da;
+        console.log(load.Load);
         //   let datee = (parseInt(tarikh[8]+tarikh[9]) + i).toString() + '-' + tarikh[5]+tarikh[6] +'-'+tarikh[0]+tarikh[1]+tarikh[2]+tarikh[3];
         var chart = c3.generate({
           bindto: '#d',
@@ -46,7 +46,7 @@ const fun  = function(data){
             x: {
               label:{
                 text: 'Time',
-                position:'outer-center',
+                position:'outer-right',
               },
               type: 'timeseries',
               tick:{
@@ -54,11 +54,14 @@ const fun  = function(data){
               }
             }
           },
-          zoom: {
-            enabled:true,
-            rescale:true,
-            extent: [1, 100],
+          point: {
+            show: false
           },
+          // zoom: {
+          //   enabled:true,
+          //   rescale:true,
+          //   extent: [1, 100],
+          // },
           grid: {
             x: {
               show: true,

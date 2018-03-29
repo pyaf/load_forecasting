@@ -1,18 +1,29 @@
-
 import sys,os
-djangoproject_home="website"
-sys.path.append(djangoproject_home)
-os.environ['DJANGO_SETTINGS_MODULE'] = 'website.settings'
-from .models import CSV
-import csv,datetime
-for i in range(10,11):
-    a = 1+i;
-    print(a);
-    link = "static/SLDC_Data/2018/02/"+str(a).zfill(2)+"-02-2018.csv"
-    dataReader = csv.reader(open(link), delimiter=',', quotechar='"')
-    for row in dataReader:
-        data = CSV()
-        data.timestamp = row[0]
-        data.load_value = row[1]
-        data.date = datetime.date(2018,2,a)
-        data.save()
+import django
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'website.settings')
+django.setup()
+from swag.models import CSV
+import csv, datetime
+
+day_range = list(range(0, 31)) # days, 1 to 31
+
+# months, Aug to Dec for 2017, and Jan for 2018
+month_range = {
+				2017: [8,9,10,11,12],
+				2018: [1,2,3]
+				}
+
+year_range = [2017,2018]
+
+for year in year_range:
+	for month in month_range[year]:
+			for day in day_range:
+				try:
+					a = 1+day
+					print(a,month,year);
+					link = "static/SLDC_Data/"+str(year)+"/"+str(month).zfill(2)+"/"+str(a).zfill(2)+"-"+str(month).zfill(2)+"-"+str(year)+".csv"
+					dataReader = csv.reader(open(link), delimiter=',', quotechar='"')
+					for row in dataReader:
+						data = CSV.objects.create(timestamp = row[0], load_value = row[1], date = datetime.date(year,month,a))
+				except Exception as e:
+					print(e)
