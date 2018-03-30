@@ -65,8 +65,8 @@ def reload_task():
 								t = (time.text).split(':')
 								TimE = datetime.time(int(t[0]),int(t[1]))
 								writer.writerow([str(TimE), delhi.text])
-                print(str(TimE))
-
+								print(str(TimE))
+								
 								results=[]
 								results.append(CSV.objects.filter(date = datetime.date.today(), timestamp = str(TimE)))
 								# print("hhhhhhhhhhheeeee", len(results[0]))
