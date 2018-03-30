@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 celerybeat*
 others
+staticfiles/*
 server/redis-4.0.8/
 server/*.gz
 server/db.sqlite3
