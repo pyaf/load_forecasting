@@ -31,7 +31,7 @@ from datetime import timedelta
 # 					print(e)
 
 
-start_date = datetime.date(2017,12,7)
+start_date = datetime.date(2017,8,27)
 start_time = datetime.time(0,0)
 end_date = datetime.date.today()
 dt = datetime.datetime.combine(start_date,start_time)
@@ -70,9 +70,9 @@ while(dt.date() != end_date):
 			results=[]
 			results.append(CSV.objects.filter(date = dt.date(), timestamp = str(dt.time())))
 			if (len(results[0]) == 0):
-				print("kaka")
+				# print("kaka")
 				data = CSV.objects.create(timestamp = str(dt.time()), load_value = None, date = dt.date())
-				print("nana")
+				# print("nana")
 			while(str(datetime.time(23,55)) != str(dt.time())):
 				print("e")
 				dt = (datetime.datetime.combine(dt.date(),dt.time())+timedelta(minutes=5))
