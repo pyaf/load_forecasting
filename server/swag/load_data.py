@@ -70,9 +70,9 @@ while(dt.date() != end_date):
 			results=[]
 			results.append(CSV.objects.filter(date = dt.date(), timestamp = str(dt.time())))
 			if (len(results[0]) == 0):
-				print("kaka")
+				# print("kaka")
 				data = CSV.objects.create(timestamp = str(dt.time()), load_value = None, date = dt.date())
-				print("nana")
+				# print("nana")
 			while(str(datetime.time(23,55)) != str(dt.time())):
 				print("e")
 				dt = (datetime.datetime.combine(dt.date(),dt.time())+timedelta(minutes=5))

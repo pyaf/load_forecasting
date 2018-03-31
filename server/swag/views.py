@@ -109,7 +109,7 @@ def forecasted_plot(request):
         l = []
         # t = ['x']
         for i in range(p+1):
-            print(i ,"ayushJ")
+            # print(i ,"ayushJ")
             query_results.append((CSV.objects.filter(date = aa-timedelta(days=i)).order_by('timestamp')))
             q = [str(aa-timedelta(days=i))]
             for x in query_results[i]:
@@ -146,7 +146,7 @@ def forecasted_plot(request):
         last1_days = []
         no_day_alphamin = 30
         for i in range(no_day_alphamin):
-            print(i ,"ayush")
+            # print(i ,"ayush")
             query_results1.append(CSV.objects.filter(date = aa-timedelta(days=(no_day_alphamin-i))))
             # q = [str(aa-timedelta(days=i))]
             loaddata = []
@@ -156,12 +156,16 @@ def forecasted_plot(request):
         alpha = [0]*288
         alphamin = [0]*288
         forecast_last1_days = [[0]*288 for i in range(no_day_alphamin)]
-
-        forecast_last1_days[1] = last1_days[0][:]
+        # forecast_last1_days[1] = last1_days[0][:]
         check_none=0
-        while(len(last1_days[check_none]) != 288):
-            check_none  = check_none + 1
-            forecast_last1_days[check_none+1] = last1_days[check_none][:]
+        flag = 1
+        while(flag == 1):
+            try:
+                sum(last1_days[0+check_none])
+                forecast_last1_days[check_none+1] = last1_days[0+check_none][:]
+                flag = 2
+            except Exception as e:
+                check_none += 1
         for j in range(288):
             mse = [0]*9
             for k in range(1,10):
@@ -183,11 +187,18 @@ def forecasted_plot(request):
                     minimum = mse[i]
                     alphamin[j] = (i+1)*0.1
         forecasting = [[] for i in range(21)]
-        forecasting[1] = last1_days[10][:]
+        # forecasting[1] = last1_days[10][:]
         check_none1 = 0
-        while(len(last1_days[10+check_none1]) != 288):
-            check_none1 = check_none1+1
-            forecasting[1+check_none1] = last1_days[10+check_none1][:]
+        flag1 = 1
+        while(flag1 == 1):
+            try:
+                sum(last1_days[10+check_none1])
+                forecasting[check_none1+1] = last1_days[10+check_none1][:]
+                flag1= 2
+            except Exception as e:
+                check_none1 += 1
+        # print((last1_days[10+check_none1]))
+        # print(len())
         for j in range(2+check_none1,21):
             for i in range(288):
                 try:
