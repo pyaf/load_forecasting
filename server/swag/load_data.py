@@ -31,9 +31,9 @@ from datetime import timedelta
 # 					print(e)
 
 
-start_date = datetime.date(2017,12,7)
+start_date = datetime.date(2017,8,27)
 start_time = datetime.time(0,0)
-end_date = datetime.date.today()
+end_date = datetime.date(2017,12,7)
 dt = datetime.datetime.combine(start_date,start_time)
 while(dt.date() != end_date):
 	year = dt.date().year
