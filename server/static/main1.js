@@ -3,9 +3,9 @@ $('#dddd').on('click', function() {
     "fc": $("#fc").val(),
     // to: $("#to").val(),
   };
-  console.log("adsfadsfdff");
-  console.log(gap);
-  console.log(gap.fc);
+  // console.log("adsfadsfdff");
+  // console.log(gap);
+  // console.log(gap.fc);
   var csrftoken = getCookie('csrftoken');
   $.ajaxSetup({
     beforeSend: function(xhr, settings) {
@@ -17,17 +17,25 @@ $('#dddd').on('click', function() {
     url: '/show_forecasted_smavg_data/',
     data: gap,
     success: function(x){
-      console.log(x);
+      // console.log(x);
+      console.log(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,");
       fun1(x);
     },
   });
 });
 
 const fun1  = function(data){
-        console.log('asdgf',data);
-        console.log("ooooooooooooooooooooooooooooooo");
+        // console.log('asdgf',data);
+        // console.log("ooooooooooooooooooooooooooooooo");
         let load = data;
+        console.log("zzzzzzzzzzzzzzz",load.rmsesmavg);
         console.log(load.forecasted_Load);
+        var x1 = document.getElementById('smavg1');
+        x1.innerHTML = load.rmsesmavg;
+        var y1 = document.getElementById('wmavg1');
+        y1.innerHTML = load.rmsewmavg;
+        var z1 = document.getElementById('ses1');
+        z1.innerHTML = load.rmseses;
         //   let datee = (parseInt(tarikh[8]+tarikh[9]) + i).toString() + '-' + tarikh[5]+tarikh[6] +'-'+tarikh[0]+tarikh[1]+tarikh[2]+tarikh[3];
         var chart = c3.generate({
           bindto: '#Forecasting',
