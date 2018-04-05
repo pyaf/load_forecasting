@@ -1,0 +1,5 @@
+[client]
+	database = db_name
+	user = db_user
+	password = userpassword
+efault-character-set = utf8
