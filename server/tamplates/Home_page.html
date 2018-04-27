@@ -5,6 +5,22 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <style>
+  table,th,td{
+    border: 2px solid black;
+  }
+  table {
+    width: 80%;
+  }
+
+  th, td {
+    padding: 8px;
+    text-align: left;
+    /*border-bottom: 1px solid #ddd;*/
+  }
+
+  tr:hover {
+    background-color:#808080;
+  }
   body {
       background-color: lightblue;
   }
@@ -65,6 +81,24 @@
 <h1>Today Delhi's Load and Forecasted Load plots </h1>
 <!-- <button id="kp">Sub</button> -->
 <div id ="ope"></div>
+<table align='center'>
+  <thead>
+    <tr>
+      <th>Features</th>
+      <th>SMAG</th>
+      <th>WMAG</th>
+      <th>SES</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>RMSE(in MW)</td>
+      <td colspan="1" id='smavg'>Wait</td>
+      <td colspan="1" id='wmavg'>Wait</td>
+      <td colspan="1" id='ses'>Wait</td>
+    </tr>
+  </tbody>
+</table>
 <script>
 let day = "{{Day}}";
 let month ="{{Month}}";
@@ -97,10 +131,16 @@ $(document).ready(function(){
 });
 
 const fun2  = function(data){
-        console.log('asdgf',data);
-        console.log("ooooooooooooooooooooooooooooooo");
+        // console.log('asdgf',data);
+        // console.log("ooooooooooooooooooooooooooooooo");
         let load = data;
-        console.log(load.forecasted_Load);
+        // console.log(load.forecasted_Load);
+        var x = document.getElementById('smavg');
+        x.innerHTML = load.rmsesmavg;
+        var y = document.getElementById('wmavg');
+        y.innerHTML = load.rmsewmavg;
+        var z = document.getElementById('ses');
+        z.innerHTML = load.rmseses;
         //   let datee = (parseInt(tarikh[8]+tarikh[9]) + i).toString() + '-' + tarikh[5]+tarikh[6] +'-'+tarikh[0]+tarikh[1]+tarikh[2]+tarikh[3];
         var chart = c3.generate({
           bindto: '#ope',
@@ -161,6 +201,7 @@ function getCookie(name) {
     }
     return cookieValue;
 }
+
 // let day = "{{Day}}";
 // let month ="{{Month}}";
 // let year = "{{Year}}";
@@ -218,6 +259,14 @@ function getCookie(name) {
 //     // });
 //  });
 </script>
+
+
+ <!--  <script> function func(){
+
+  }</script>
+ -->
+<!-- <h3>{{Day}}</h3> -->
+<!-- <h3>{{load.varix}}</h3> -->
 <!-- </form> -->
 <!-- <form action="" method="get">
   <label for="GET-name">Name:</label>
@@ -235,25 +284,43 @@ function getCookie(name) {
 <!-- <form> -->
 <br>
 
-<h1> Datewise Delhi Load Plots</h1>
+<h1 id="w"> Datewise Delhi Load Plots</h1>
 
 <p>
   From:<input type="date" id="from" required="true">
   To:<input type="date" id="to" required="true">
-  <button id="ddd">Submit</button>
+  <a href="#w"><button id="ddd">Submit</button></a>
 </p>
 
 <div id ="d"></div>
 <script src = "/static/main.js"></script>
 
-<h1>Forecasting Graph and Comparison</h1>
+<h1 id="q">Forecasting Graph and Comparison</h1>
 
 <p>
   Date:<input type="date" id="fc" required="true">
-  <button id="dddd">Submit</button>
+  <!-- <button id="dddd">Submit</button> -->
+  <a href="#q"><button id="dddd">Submit</button></a>
 </p>
-
 <div id="Forecasting"></div>
+<table align='center'>
+  <thead>
+    <tr>
+      <th>Features</th>
+      <th>SMAG</th>
+      <th>WMAG</th>
+      <th>SES</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>RMSE(in MW)</td>
+      <td colspan="1" id='smavg1'>Choose a Date</td>
+      <td colspan="1" id='wmavg1'>Choose a Date</td>
+      <td colspan="1" id='ses1'>Choose a Date</td>
+    </tr>
+  </tbody>
+</table>
 <script src = "/static/main1.js"></script>
 
 </body>
