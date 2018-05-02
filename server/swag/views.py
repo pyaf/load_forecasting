@@ -120,8 +120,8 @@ def forecasted_plot(request):
         # print(last[1])
         # print(q)
         weights = [0.8019, 0.0426, 0.0226, -0.0169, 0.1497]
-        weights_load = ['Forecasted with WMAVG']
-        simple_load = ['Forecasted with SMAVG']
+        weights_load = ['Forecasted with WMA']
+        simple_load = ['Forecasted with SMA']
         for i in range(1,289):
             init = 0
             init1 = 0
