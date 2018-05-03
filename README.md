@@ -1,6 +1,6 @@
-# Load and Price Forcasting
+# Load Forecasting
 
-Btech Project on Load and Price forcasting.
+Btech Project on Load Forecasting.
 
 ### Code
 
