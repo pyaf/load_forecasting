@@ -29,7 +29,7 @@ import csv,datetime
 def reload_task():
 	# global size
 	print("date dekh le bhai",datetime.date.today().day)
-	url = 'https://www.delhisldc.org/Loaddata.aspx?mode='
+	url = 'http://www.delhisldc.org/Loaddata.aspx?mode='
 	day_range = list(range(datetime.date.today().day,datetime.date.today().day+1)) # days, 1 to 31
 	# months, Aug to Dec for 2017, and Jan for 2018
 	month_range = {
