@@ -2,14 +2,14 @@ import requests
 import csv
 import os
 from bs4 import BeautifulSoup
-url = 'https://www.delhisldc.org/Loaddata.aspx?mode='
+url = 'http://www.delhisldc.org/Loaddata.aspx?mode='
 
 day_range = list(range(1, 32)) # days, 1 to 31
 
 # months, Aug to Dec for 2017, and Jan for 2018
 month_range = {
-				2017: list(range(8, 13)),
-				2018: [1]
+				2017: [],
+				2018: [1, 2, 3, 4, 5, 6, 7, 8]
 				}
 
 year_range = [2017, 2018]

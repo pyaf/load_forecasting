@@ -11,7 +11,7 @@ def plot_curves(day_range, month, year):
     data = {}
     for day in day_range:
         date = '%02d-%02d-%d' % (day, month, year)
-        data['df%02d' % day] = extract_dt(pd.read_csv('SLDC_Data/2017/10/%s.csv' % date))
+        data['df%02d' % day] = extract_dt(pd.read_csv('SLDC_Data/%d/%02d/%s.csv' % (year, month, date)))
         data['df%02d' % day]['date'] = date
 
     fig = plt.figure(figsize=(20, 10))
