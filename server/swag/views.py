@@ -1,17 +1,15 @@
 from django.shortcuts import render, HttpResponse
-from .models import CSV
+from django.utils.safestring import mark_safe
 import datetime
 from datetime import timedelta
-from django.utils.safestring import mark_safe
 import json
-
-# Create your views here.
-# from .forms import CSVForm
 import requests
 import csv
 import os
 from bs4 import BeautifulSoup
 import numpy as np
+import pandas as pd
+from .models import CSV
 
 
 
@@ -24,6 +22,7 @@ def home_page(request):
     return render(request, "Home_page.html", {'Day': str(day).zfill(2),
                                         'Month': str(month).zfill(2),
                                         'Year': year})
+
 
 def graph_plot(request):
     print("insde graph_plot");
@@ -122,6 +121,10 @@ def forecasted_plot(request):
         weights = [0.8019, 0.0426, 0.0226, -0.0169, 0.1497]
         weights_load = ['Forecasted with WMA']
         simple_load = ['Forecasted with SMA']
+        ARIMA_load = ['Forecasted with ARIMA']
+        csv_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        arima_csv = pd.read_csv(os.path.join(csv_path, 'static/arima_pred.csv'))['load'].values
+        ARIMA_load.extend(list(arima_csv))
         for i in range(1,289):
             init = 0
             init1 = 0
@@ -208,7 +211,10 @@ def forecasted_plot(request):
                     # print(((alphamin[i]*last1_days[j+10-1][i]) + ((1 - alphamin[i])*forecasting[j-1][i])))
                 except Exception as e:
                     # print(i,j)
-                    forecasting[j].append(round(forecasting[j-1][i], 2))
+                    try:
+                        forecasting[j].append(round(forecasting[j-1][i], 2))
+                    except:
+                        forecasting[j].append(0)
                     # print((forecasting[j-1][i]))
         # print(".........",forecasting[20])
         forecasting[20].insert(0,"Forecasted with SES")
@@ -230,7 +236,7 @@ def forecasted_plot(request):
         #     minutes = x.timestamp.minute
         #     t.append(str(hour)+':'+str(minutes))
         l.insert(0,t)
-
+        l.append(ARIMA_load)
     else:
         l = None
     # print ('sadf',w)
