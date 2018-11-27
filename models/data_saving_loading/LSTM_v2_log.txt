@@ -1,0 +1,132 @@
+2018-11-26 20:47:34,034 Preparing data...
+2018-11-26 20:47:36,164 Data prepared. Starting grid search
+2018-11-26 20:51:01,226 Preparing data...
+2018-11-26 20:51:03,204 Data prepared. Starting grid search
+2018-11-26 20:52:02,692 num of neurons in first LSTM layer: 1 , nov_24_RMSE: 516.809961 , val_RMSE: 68.898229
+2018-11-26 20:52:45,618 num of neurons in first LSTM layer: 2 , nov_24_RMSE: 241.038722 , val_RMSE: 59.865038
+2018-11-26 20:53:15,369 num of neurons in first LSTM layer: 3 , nov_24_RMSE: 239.008981 , val_RMSE: 66.613464
+2018-11-26 20:53:46,842 num of neurons in first LSTM layer: 4 , nov_24_RMSE: 424.140944 , val_RMSE: 111.838046
+2018-11-26 20:55:50,016 num of neurons in first LSTM layer: 5 , nov_24_RMSE: 489.412548 , val_RMSE: 64.184903
+2018-11-26 20:56:36,368 num of neurons in first LSTM layer: 6 , nov_24_RMSE: 483.502704 , val_RMSE: 70.318217
+2018-11-26 20:57:21,901 num of neurons in first LSTM layer: 7 , nov_24_RMSE: 404.551104 , val_RMSE: 64.732522
+2018-11-26 20:59:40,167 num of neurons in first LSTM layer: 8 , nov_24_RMSE: 325.725148 , val_RMSE: 74.525417
+2018-11-26 21:00:35,360 num of neurons in first LSTM layer: 9 , nov_24_RMSE: 199.599398 , val_RMSE: 82.231313
+2018-11-26 21:01:09,050 num of neurons in first LSTM layer: 10 , nov_24_RMSE: 444.655212 , val_RMSE: 95.633035
+2018-11-26 21:01:42,728 num of neurons in first LSTM layer: 11 , nov_24_RMSE: 732.785259 , val_RMSE: 79.071776
+2018-11-26 21:04:14,834 num of neurons in first LSTM layer: 12 , nov_24_RMSE: 129.427085 , val_RMSE: 53.518342
+2018-11-26 21:06:19,686 num of neurons in first LSTM layer: 13 , nov_24_RMSE: 693.264666 , val_RMSE: 65.249165
+2018-11-26 21:07:16,036 num of neurons in first LSTM layer: 14 , nov_24_RMSE: 279.336458 , val_RMSE: 81.117458
+2018-11-26 21:07:59,461 num of neurons in first LSTM layer: 15 , nov_24_RMSE: 681.131444 , val_RMSE: 138.369230
+2018-11-26 21:08:50,768 num of neurons in first LSTM layer: 16 , nov_24_RMSE: 299.768451 , val_RMSE: 59.859386
+2018-11-26 21:10:17,171 num of neurons in first LSTM layer: 17 , nov_24_RMSE: 926.422634 , val_RMSE: 89.625650
+2018-11-26 21:11:42,526 num of neurons in first LSTM layer: 18 , nov_24_RMSE: 363.556102 , val_RMSE: 58.377374
+2018-11-26 21:12:59,151 num of neurons in first LSTM layer: 19 , nov_24_RMSE: 391.581072 , val_RMSE: 52.773452
+2018-11-26 21:15:19,024 Preparing data...
+2018-11-26 21:15:20,718 Data prepared. Starting grid search
+2018-11-26 21:16:20,167 num of neurons in first LSTM layer: 12 , nov_24_RMSE: 612.685775 , val_RMSE: 62.234661
+2018-11-26 21:16:49,069 Preparing data...
+2018-11-26 21:16:50,712 Data prepared. Starting grid search
+2018-11-26 21:17:20,416 num of neurons in first LSTM layer: 1 , nov_24_RMSE: 565.082458 , val_RMSE: 112.114112
+2018-11-26 21:18:10,559 num of neurons in first LSTM layer: 2 , nov_24_RMSE: 379.533948 , val_RMSE: 130.548108
+2018-11-26 21:19:32,081 num of neurons in first LSTM layer: 3 , nov_24_RMSE: 242.093614 , val_RMSE: 57.653026
+2018-11-26 21:20:48,910 num of neurons in first LSTM layer: 4 , nov_24_RMSE: 775.896630 , val_RMSE: 60.340928
+2018-11-26 21:21:39,808 num of neurons in first LSTM layer: 5 , nov_24_RMSE: 403.152063 , val_RMSE: 69.239622
+2018-11-26 21:22:38,237 num of neurons in first LSTM layer: 6 , nov_24_RMSE: 359.423651 , val_RMSE: 54.022257
+2018-11-26 21:23:47,705 num of neurons in first LSTM layer: 7 , nov_24_RMSE: 638.610992 , val_RMSE: 71.710418
+2018-11-26 21:24:18,025 num of neurons in first LSTM layer: 8 , nov_24_RMSE: 525.348534 , val_RMSE: 92.668903
+2018-11-26 21:25:35,493 num of neurons in first LSTM layer: 9 , nov_24_RMSE: 308.982196 , val_RMSE: 66.598839
+2018-11-26 21:26:19,957 num of neurons in first LSTM layer: 10 , nov_24_RMSE: 544.486204 , val_RMSE: 97.474397
+2018-11-26 21:27:52,966 num of neurons in first LSTM layer: 11 , nov_24_RMSE: 557.622806 , val_RMSE: 58.169884
+2018-11-26 21:29:11,941 num of neurons in first LSTM layer: 12 , nov_24_RMSE: 398.182243 , val_RMSE: 60.286703
+2018-11-26 21:30:30,104 num of neurons in first LSTM layer: 13 , nov_24_RMSE: 806.058496 , val_RMSE: 50.078342
+2018-11-26 21:32:52,342 num of neurons in first LSTM layer: 14 , nov_24_RMSE: 650.962143 , val_RMSE: 71.366139
+2018-11-26 21:33:26,961 num of neurons in first LSTM layer: 15 , nov_24_RMSE: 716.754339 , val_RMSE: 93.504579
+2018-11-26 21:34:22,107 num of neurons in first LSTM layer: 16 , nov_24_RMSE: 272.400338 , val_RMSE: 128.770694
+2018-11-26 21:35:24,396 num of neurons in first LSTM layer: 17 , nov_24_RMSE: 214.705110 , val_RMSE: 70.100302
+2018-11-26 21:36:35,022 num of neurons in first LSTM layer: 18 , nov_24_RMSE: 195.141614 , val_RMSE: 80.682477
+2018-11-26 21:37:45,057 num of neurons in first LSTM layer: 19 , nov_24_RMSE: 296.713340 , val_RMSE: 91.662104
+2018-11-26 21:38:37,267 Preparing data...
+2018-11-26 21:38:39,344 Data prepared. Starting grid search
+2018-11-26 21:39:13,075 num of neurons in first LSTM layer: 1 , nov_24_RMSE: 240.306197 , val_RMSE: 67.644982
+2018-11-26 21:39:43,684 num of neurons in first LSTM layer: 2 , nov_24_RMSE: 306.597522 , val_RMSE: 67.230085
+2018-11-26 21:40:14,309 num of neurons in first LSTM layer: 3 , nov_24_RMSE: 382.851905 , val_RMSE: 123.401156
+2018-11-26 21:41:06,458 num of neurons in first LSTM layer: 4 , nov_24_RMSE: 596.647141 , val_RMSE: 62.950973
+2018-11-26 21:42:00,175 num of neurons in first LSTM layer: 5 , nov_24_RMSE: 299.256796 , val_RMSE: 54.100753
+2018-11-26 21:43:00,844 num of neurons in first LSTM layer: 6 , nov_24_RMSE: 271.359266 , val_RMSE: 62.989024
+2018-11-26 21:43:47,734 num of neurons in first LSTM layer: 7 , nov_24_RMSE: 580.073422 , val_RMSE: 70.555951
+2018-11-26 21:44:42,736 num of neurons in first LSTM layer: 8 , nov_24_RMSE: 268.366218 , val_RMSE: 63.384371
+2018-11-26 21:45:15,952 num of neurons in first LSTM layer: 9 , nov_24_RMSE: 395.857076 , val_RMSE: 77.037302
+2018-11-26 21:46:25,296 num of neurons in first LSTM layer: 10 , nov_24_RMSE: 482.553842 , val_RMSE: 60.796105
+2018-11-26 21:47:06,071 num of neurons in first LSTM layer: 11 , nov_24_RMSE: 425.195918 , val_RMSE: 76.197509
+2018-11-26 21:49:14,494 num of neurons in first LSTM layer: 12 , nov_24_RMSE: 371.259415 , val_RMSE: 110.509665
+2018-11-26 21:51:07,544 num of neurons in first LSTM layer: 13 , nov_24_RMSE: 452.544979 , val_RMSE: 101.590644
+2018-11-26 21:51:55,217 num of neurons in first LSTM layer: 14 , nov_24_RMSE: 589.251866 , val_RMSE: 67.299233
+2018-11-26 21:54:25,002 num of neurons in first LSTM layer: 15 , nov_24_RMSE: 310.889922 , val_RMSE: 54.183303
+2018-11-26 21:56:53,502 num of neurons in first LSTM layer: 16 , nov_24_RMSE: 334.920332 , val_RMSE: 53.333267
+2018-11-26 21:57:42,862 num of neurons in first LSTM layer: 17 , nov_24_RMSE: 244.947653 , val_RMSE: 66.708282
+2018-11-26 21:58:33,735 num of neurons in first LSTM layer: 18 , nov_24_RMSE: 747.156318 , val_RMSE: 79.214890
+2018-11-26 21:59:23,066 num of neurons in first LSTM layer: 19 , nov_24_RMSE: 339.157349 , val_RMSE: 59.157492
+2018-11-26 22:03:14,225 Preparing data...
+2018-11-26 22:03:15,928 Data prepared. Starting grid search
+2018-11-26 22:03:46,687 num of neurons in first LSTM layer: 1 , nov_24_RMSE: 237.757518 , val_RMSE: 67.869762
+2018-11-26 22:04:17,449 num of neurons in first LSTM layer: 2 , nov_24_RMSE: 306.542805 , val_RMSE: 67.165195
+2018-11-26 22:04:48,108 num of neurons in first LSTM layer: 3 , nov_24_RMSE: 381.450043 , val_RMSE: 123.311963
+2018-11-26 22:05:39,665 num of neurons in first LSTM layer: 4 , nov_24_RMSE: 597.120094 , val_RMSE: 63.538624
+2018-11-26 22:06:33,775 num of neurons in first LSTM layer: 5 , nov_24_RMSE: 298.483075 , val_RMSE: 54.122790
+2018-11-26 22:07:35,599 num of neurons in first LSTM layer: 6 , nov_24_RMSE: 272.003761 , val_RMSE: 63.018181
+2018-11-26 22:08:23,284 num of neurons in first LSTM layer: 7 , nov_24_RMSE: 579.799465 , val_RMSE: 69.578014
+2018-11-26 22:09:24,378 num of neurons in first LSTM layer: 8 , nov_24_RMSE: 268.590785 , val_RMSE: 63.767327
+2018-11-26 22:09:58,055 num of neurons in first LSTM layer: 9 , nov_24_RMSE: 395.585564 , val_RMSE: 76.975519
+2018-11-26 22:11:12,325 num of neurons in first LSTM layer: 10 , nov_24_RMSE: 482.339186 , val_RMSE: 60.916684
+2018-11-26 22:11:54,428 num of neurons in first LSTM layer: 11 , nov_24_RMSE: 425.209099 , val_RMSE: 76.200110
+2018-11-26 22:14:15,540 num of neurons in first LSTM layer: 12 , nov_24_RMSE: 371.575334 , val_RMSE: 107.035277
+2018-11-26 22:16:22,096 num of neurons in first LSTM layer: 13 , nov_24_RMSE: 451.590403 , val_RMSE: 101.276035
+2018-11-26 22:17:12,846 num of neurons in first LSTM layer: 14 , nov_24_RMSE: 589.462018 , val_RMSE: 67.204844
+2018-11-26 22:20:04,415 num of neurons in first LSTM layer: 15 , nov_24_RMSE: 318.827584 , val_RMSE: 55.059906
+2018-11-26 22:22:51,120 num of neurons in first LSTM layer: 16 , nov_24_RMSE: 334.535834 , val_RMSE: 53.222583
+2018-11-26 22:23:45,965 num of neurons in first LSTM layer: 17 , nov_24_RMSE: 245.497507 , val_RMSE: 66.833719
+2018-11-26 22:24:46,531 num of neurons in first LSTM layer: 18 , nov_24_RMSE: 745.418495 , val_RMSE: 79.302015
+2018-11-26 22:25:43,245 num of neurons in first LSTM layer: 19 , nov_24_RMSE: 340.031622 , val_RMSE: 59.153396
+2018-11-26 22:29:54,825 Preparing data...
+2018-11-26 22:29:56,479 Data prepared. Starting grid search
+2018-11-26 22:30:23,591 num of neurons in first LSTM layer: 1 , nov_24_RMSE: 406.931598 , val_RMSE: 71.811174
+2018-11-26 22:31:12,444 num of neurons in first LSTM layer: 2 , nov_24_RMSE: 568.228455 , val_RMSE: 79.371793
+2018-11-26 22:32:22,189 Preparing data...
+2018-11-26 22:32:24,159 Data prepared. Starting grid search
+2018-11-26 22:32:42,794 Preparing data...
+2018-11-26 22:32:44,492 Data prepared. Starting grid search
+2018-11-26 22:34:41,326 Preparing data...
+2018-11-26 22:34:43,363 Data prepared. Starting grid search
+2018-11-26 22:37:15,594 num of neurons in first LSTM layer: 1 , nov_24_RMSE: 406.031493 , val_RMSE: 71.952487
+2018-11-26 22:42:07,562 num of neurons in first LSTM layer: 2 , nov_24_RMSE: 567.651479 , val_RMSE: 79.308815
+2018-11-26 22:47:02,364 num of neurons in first LSTM layer: 3 , nov_24_RMSE: 273.545329 , val_RMSE: 67.837995
+2018-11-26 23:02:53,180 num of neurons in first LSTM layer: 4 , nov_24_RMSE: 238.368410 , val_RMSE: 63.438783
+2018-11-26 23:06:59,115 num of neurons in first LSTM layer: 5 , nov_24_RMSE: 184.758043 , val_RMSE: 67.655796
+2018-11-26 23:10:20,090 num of neurons in first LSTM layer: 6 , nov_24_RMSE: 537.490105 , val_RMSE: 66.777150
+2018-11-26 23:15:16,152 num of neurons in first LSTM layer: 7 , nov_24_RMSE: 914.427093 , val_RMSE: 75.163703
+2018-11-26 23:17:50,718 num of neurons in first LSTM layer: 8 , nov_24_RMSE: 392.246766 , val_RMSE: 90.564474
+2018-11-26 23:25:55,859 num of neurons in first LSTM layer: 9 , nov_24_RMSE: 388.861058 , val_RMSE: 90.746835
+2018-11-27 02:20:30,773 Preparing data...
+2018-11-27 02:21:31,847 Preparing data...
+2018-11-27 02:21:34,435 Data prepared. Starting grid search
+2018-11-27 02:22:00,740 Preparing data...
+2018-11-27 02:22:03,422 Data prepared. Starting grid search
+2018-11-27 02:25:10,852 num of neurons in first LSTM layer: 1 , nov_24_RMSE: 182.999107 , val_RMSE: 177.134168
+2018-11-27 02:28:56,379 num of neurons in first LSTM layer: 2 , nov_24_RMSE: 168.465526 , val_RMSE: 167.753260
+2018-11-27 02:30:52,171 num of neurons in first LSTM layer: 3 , nov_24_RMSE: 374.575085 , val_RMSE: 203.326767
+2018-11-27 02:43:08,732 num of neurons in first LSTM layer: 4 , nov_24_RMSE: 127.257860 , val_RMSE: 139.957707
+2018-11-27 02:45:38,704 num of neurons in first LSTM layer: 5 , nov_24_RMSE: 2022.116370 , val_RMSE: 2167.365123
+2018-11-27 02:48:45,409 num of neurons in first LSTM layer: 6 , nov_24_RMSE: 168.082609 , val_RMSE: 181.414946
+2018-11-27 02:50:40,547 num of neurons in first LSTM layer: 7 , nov_24_RMSE: 710.817310 , val_RMSE: 451.268830
+2018-11-27 02:58:42,150 num of neurons in first LSTM layer: 8 , nov_24_RMSE: 1303.097153 , val_RMSE: 152.377330
+2018-11-27 03:05:41,568 num of neurons in first LSTM layer: 9 , nov_24_RMSE: 219.312603 , val_RMSE: 186.128373
+2018-11-27 03:08:16,711 num of neurons in first LSTM layer: 10 , nov_24_RMSE: 268.564642 , val_RMSE: 167.998749
+2018-11-27 03:14:40,709 num of neurons in first LSTM layer: 11 , nov_24_RMSE: 462.686887 , val_RMSE: 514.873984
+2018-11-27 03:18:32,007 num of neurons in first LSTM layer: 12 , nov_24_RMSE: 272.530617 , val_RMSE: 384.656177
+2018-11-27 03:20:35,612 num of neurons in first LSTM layer: 13 , nov_24_RMSE: 1065.999332 , val_RMSE: 280.955579
+2018-11-27 03:26:33,548 num of neurons in first LSTM layer: 14 , nov_24_RMSE: 216.996712 , val_RMSE: 177.312926
+2018-11-27 03:31:08,181 num of neurons in first LSTM layer: 15 , nov_24_RMSE: 156.757150 , val_RMSE: 264.908282
+2018-11-27 03:39:41,397 num of neurons in first LSTM layer: 16 , nov_24_RMSE: 334.932388 , val_RMSE: 192.942197
+2018-11-27 03:47:36,823 num of neurons in first LSTM layer: 17 , nov_24_RMSE: 159.562631 , val_RMSE: 138.501595
+2018-11-27 03:51:38,277 num of neurons in first LSTM layer: 18 , nov_24_RMSE: 99.869402 , val_RMSE: 190.643021
+2018-11-27 03:54:19,342 num of neurons in first LSTM layer: 19 , nov_24_RMSE: 545.834217 , val_RMSE: 387.901016

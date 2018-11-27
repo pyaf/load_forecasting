@@ -1,3 +1,4 @@
+#!/home/eee/ug/15084015/miniconda3/envs/TF/bin/python
 '''
 The script is to run half an hour after midnight. Scrap last day's data and update monthsdata.csv
 '''
@@ -17,7 +18,7 @@ from statsmodels.tsa.arima_model import ARIMAResults
 
 # to store the log in a file called 'arima_log.txt'
 logging.basicConfig(
-    filename='arima_log.txt',
+    filename='aws_arima_log.txt',
     filemode='a',
     level=logging.INFO,
     format="%(asctime)s %(message)s",
@@ -72,14 +73,14 @@ else:  # scrap for last 30 days, prepare monthdata.csv
         get_load_data(yesterday)    
     data = get_data()
 
-exit()
+# exit()
 logger.info(data.shape)
 data = data.asfreq(freq='30Min', method='bfill')  # sample the data in hourly manner
 
 # initialize the model
 model = sm.tsa.statespace.SARIMAX(data,
-                                order=(0,1,1),
-                                seasonal_order=(0,2,2,24),
+                                order=(3,1,1),
+                                seasonal_order=(3,0,0,24),
                                 enforce_stationarity=False,
                                 enforce_invertibility=False)
 

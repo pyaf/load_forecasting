@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 celerybeat*
+*.pkl
 others
 staticfiles/*
 server/redis-4.0.8/

@@ -1,0 +1,226 @@
+LSTM 
+
+Architecture => val_RMSE, RMSE on 25nov load
+LSTM(1) + LSTM(1) + Dense() => 130
+
+
+model.add(GRU(1, batch_input_shape=(batch_size, train_x.shape[1], train_x.shape[2]), stateful=True, return_sequences=True))
+model.add(GRU(1, stateful=True))
+
+172.30510765803461 70.23247637069744
+
+model.add(GRU(1, batch_input_shape=(batch_size, train_x.shape[1], train_x.shape[2]), stateful=True, return_sequences=True))
+model.add(GRU(1, stateful=True, return_sequences=True))
+model.add(GRU(1, stateful=True))
+
+
+169.01878138738027  98.78463527925186
+
+
+model = Sequential()
+model.add(GRU(1, batch_input_shape=(batch_size, train_x.shape[1], train_x.shape[2]), stateful=True, return_sequences=True))
+model.add(GRU(1, stateful=True, return_sequences=True))
+model.add(GRU(1, stateful=True, return_sequences=True))
+model.add(GRU(1, stateful=True))
+
+model.add(Dense(train_y.shape[1]))
+
+179.42414235781897 137.3227309920991
+
+
+model = Sequential()
+model.add(GRU(1, batch_input_shape=(batch_size, train_x.shape[1], train_x.shape[2]), stateful=True, return_sequences=True))
+model.add(GRU(1, stateful=True, return_sequences=True))
+model.add(GRU(1, stateful=True, return_sequences=True))
+model.add(GRU(1, stateful=True))
+
+model.add(Dense(train_y.shape[1]))
+model.add(Dropout(0.2))
+
+model.add(Dense(train_y.shape[1]))
+
+179.68186896684816 115.50372901507328
+
+
+batch_size = 1
+model = Sequential()
+model.add(GRU(1, batch_input_shape=(batch_size, train_x.shape[1], train_x.shape[2])))
+model.add(Dense(train_y.shape[1]))
+
+model.compile(loss='mean_squared_error', optimizer='sgd')
+es = EarlyStopping(monitor='val_loss',
+                              min_delta=0,
+                              patience=3,
+                              verbose=0, mode='auto')
+
+161.98254979093554 111.68976793136368
+
+
+del model
+batch_size = 1
+model = Sequential()
+model.add(GRU(1, batch_input_shape=(batch_size, train_x.shape[1], train_x.shape[2]), stateful=True))
+model.add(Dense(train_y.shape[1]))
+
+model.compile(loss='mean_squared_error', optimizer='sgd')
+es = EarlyStopping(monitor='val_loss',
+                              min_delta=0,
+                              patience=3,
+                              verbose=0, mode='auto')
+
+170.49926684704036 77.18821593330154
+
+model.add(LSTM(1, batch_input_shape=(1, train_x.shape[1], train_x.shape[2]), stateful=True, return_sequences=True))
+model.add(LSTM(1, stateful=True, return_sequences=True))
+model.add(LSTM(1, stateful=True))
+model.add(Dense(train_y.shape[1]))
+
+179.72401621324363 115.36772988379201
+
+model = Sequential()
+model.add(LSTM(1, batch_input_shape=(1, train_x.shape[1], train_x.shape[2]), stateful=True, return_sequences=True))
+model.add(LSTM(1, stateful=True, return_sequences=True))
+model.add(LSTM(1, stateful=True))
+model.add(Dense(train_y.shape[1]))
+model.add(Dense(train_y.shape[1]))
+
+179.6798363877226 115.55969177210693
+
+
+
+del model
+model = Sequential()
+model.add(LSTM(1, batch_input_shape=(1, train_x.shape[1], train_x.shape[2]), stateful=True, return_sequences=True))
+model.add(LSTM(1, stateful=True, return_sequences=True))
+model.add(LSTM(1, stateful=True))
+model.add(Dense(train_y.shape[1]))
+model.add(Dense(train_y.shape[1]))
+model.compile(loss='mean_squared_error', optimizer='sgd')
+
+179.64784244480092 115.40448187064597
+
+model = Sequential()
+model.add(LSTM(1, batch_input_shape=(1, train_x.shape[1], train_x.shape[2])))
+model.add(Dense(train_y.shape[1]))
+model.compile(loss='mean_squared_error', optimizer='sgd')
+179.64784244480092 115.40448187064597
+
+
+model = Sequential()
+model.add(LSTM(1, batch_input_shape=(1, train_x.shape[1], train_x.shape[2]), stateful=True))
+model.add(Dense(train_y.shape[1]))
+model.compile(loss='mean_squared_error', optimizer='sgd')
+
+170.15684534737213 73.97455785821403
+
+
+
+
+
+
+
+
+del model
+batch_size = 1
+model = Sequential()
+model.add(SimpleRNN(1, batch_input_shape=(batch_size, train_x.shape[1], train_x.shape[2]), stateful=True, return_sequences=True))
+model.add(SimpleRNN(1, stateful=True))
+
+model.add(Dense(train_y.shape[1]))
+
+model.compile(loss='mean_squared_error', optimizer='sgd')
+
+179.69537398840617 119.75008940730767
+
+
+model = Sequential()
+model.add(SimpleRNN(1, batch_input_shape=(batch_size, train_x.shape[1], train_x.shape[2]), stateful=True, return_sequences=True))
+model.add(SimpleRNN(1, stateful=True, return_sequences=True))
+model.add(SimpleRNN(1, stateful=True))
+
+179.4834537383419 116.1263437001296
+
+
+model = Sequential()
+model.add(SimpleRNN(2, batch_input_shape=(batch_size, train_x.shape[1], train_x.shape[2]), stateful=True, return_sequences=True))
+model.add(SimpleRNN(2, stateful=True, return_sequences=True))
+model.add(SimpleRNN(2, stateful=True))
+
+model.add(Dense(train_y.shape[1]))
+
+179.5914806001997 131.20615554368203
+
+
+# del model
+batch_size = 1
+model = Sequential()
+model.add(SimpleRNN(1, batch_input_shape=(batch_size, train_x.shape[1], train_x.shape[2]), stateful=True, return_sequences=True))
+model.add(SimpleRNN(1, stateful=True, return_sequences=True))
+model.add(SimpleRNN(1, stateful=True))
+
+model.add(Dense(train_y.shape[1]))
+model.add(Dropout(0.2))
+model.add(Dense(train_y.shape[1]))
+
+model.compile(loss='mean_squared_error', optimizer='sgd')
+
+
+356.5411939524292 348.51289967287505
+
+# del model
+batch_size = 1
+model = Sequential()
+model.add(SimpleRNN(1, batch_input_shape=(batch_size, train_x.shape[1], train_x.shape[2]), stateful=True, return_sequences=True))
+model.add(SimpleRNN(1, stateful=True, return_sequences=True))
+model.add(SimpleRNN(1, stateful=True, return_sequences=True))
+model.add(SimpleRNN(1, stateful=True))
+model.add(Dense(train_y.shape[1]))
+
+model.compile(loss='mean_squared_error', optimizer='sgd')
+
+179.9243505278806 127.67319742877328
+
+
+# del model
+batch_size = 1
+model = Sequential()
+model.add(SimpleRNN(1, batch_input_shape=(batch_size, train_x.shape[1], train_x.shape[2]), stateful=True))
+model.add(Dense(train_y.shape[1]))
+
+model.compile(loss='mean_squared_error', optimizer='sgd')
+
+176.81005209413934 127.72322737276058
+
+del model
+batch_size = 1
+model = Sequential()
+model.add(SimpleRNN(2, batch_input_shape=(batch_size, train_x.shape[1], train_x.shape[2]), stateful=True))
+model.add(Dense(train_y.shape[1]))
+
+model.compile(loss='mean_squared_error', optimizer='sgd')
+
+169.50042814212946 75.2211069885581
+
+
+del model
+batch_size = 1
+model = Sequential()
+model.add(SimpleRNN(3, batch_input_shape=(batch_size, train_x.shape[1], train_x.shape[2]), stateful=True))
+model.add(Dense(train_y.shape[1]))
+
+model.compile(loss='mean_squared_error', optimizer='sgd')
+
+175.55278890307227 110.81766216199584
+
+
+del model
+batch_size = 1
+model = Sequential()
+model.add(SimpleRNN(2, batch_input_shape=(batch_size, train_x.shape[1], train_x.shape[2]), stateful=True, return_sequences=True))
+model.add(SimpleRNN(2, stateful=True))
+
+model.add(Dense(train_y.shape[1]))
+
+model.compile(loss='mean_squared_error', optimizer='sgd')
+
+176.05695242370095 112.45128976645987
