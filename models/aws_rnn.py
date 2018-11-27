@@ -80,7 +80,7 @@ def get_model(model_name):
             )
         )
         model.add(Dense(train_y.shape[1]))
-        model.compile(loss="mean_squared_error", optimizer="sgd")
+        model.compile(loss="mean_squared_error", optimizer="adam")
         return model
 
     elif model_name == "LSTM":
@@ -93,7 +93,7 @@ def get_model(model_name):
             )
         )
         model.add(Dense(train_y.shape[1]))
-        model.compile(loss="mean_squared_error", optimizer="sgd")
+        model.compile(loss="mean_squared_error", optimizer="adam")
         return model
 
     elif model_name == "GRU":
@@ -108,13 +108,13 @@ def get_model(model_name):
         )
         model.add(GRU(1, stateful=True))
         model.add(Dense(train_y.shape[1]))
-        model.compile(loss="mean_squared_error", optimizer="sgd")
+        model.compile(loss="mean_squared_error", optimizer="adam")
         return model
 
 
 # to store the log in a file called 'arima_log.txt'
 logging.basicConfig(
-    filename="aws_lstm_log.txt",
+    filename="aws_rnn_log.txt",
     filemode="a",
     level=logging.INFO,
     format="%(asctime)s %(message)s",
@@ -193,12 +193,15 @@ df_last_nlags_plus_one = df.loc[:, df.columns[-nlags - 1:]]
 dt_df_last_nlags = df_last_nlags_plus_one.diff(1, axis=1).dropna(axis=1)
 dt_df_last_nlags = scaler.transform(dt_df_last_nlags)  # df is now a numpy array
 X = dt_df_last_nlags.reshape(dt_df_last_nlags.shape[0], 1, nlags)  # nlags=20
-
+today = datetime.today().strftime(format="%d-%m-%Y")
 models = ["RNN", "LSTM", "GRU"]
 
+
 for model_name in models:
+    logger.info("%s training started" % model_name)
     model = get_model(model_name)
-    for i in range(10):
+    logger.info(model.summary())
+    for i in range(15):
         history = model.fit(
             train_x,
             train_y,
@@ -230,7 +233,6 @@ for model_name in models:
     pred_df = pd.DataFrame(columns=["time", "load"])
     pred_df["time"] = list(df.index)
     pred_df["load"] = rescaled_Y
-    today = datetime.today().strftime(format="%d-%m-%Y")
     pred_df.to_csv("predictions/%s/%s.csv" % (model_name, today), index=False)
     # now, send the file to the AWS server using scp
     cmd = (

@@ -224,3 +224,33 @@ model.add(Dense(train_y.shape[1]))
 model.compile(loss='mean_squared_error', optimizer='sgd')
 
 176.05695242370095 112.45128976645987
+
+
+nlags=7
+SimpleRNN(1)
+
+167.12253483672743 164.3591296684758
+
+
+SimpleRNN(2)
+168.12847130886865 187.35787301304964
+
+nlags=15
+137.52007268769108 151.11466939045795
+
+nlags=20
+160.61520803024845 227.80558679708057
+
+
+del model
+batch_size = 1
+model = Sequential()
+model.add(SimpleRNN(1, batch_input_shape=(batch_size, train_x.shape[1], train_x.shape[2])))
+model.add(Dense(train_y.shape[1]))
+model.compile(loss='mean_squared_error', optimizer='adam')
+es = EarlyStopping(monitor='val_loss',
+                              min_delta=0,
+                              patience=3,
+                              verbose=0, mode='auto')
+
+model fit for 20 epochs, shuffle =True, not stateful
