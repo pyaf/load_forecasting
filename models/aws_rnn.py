@@ -122,7 +122,7 @@ logging.basicConfig(
 logger = logging.getLogger()
 console = logging.StreamHandler()
 logger.addHandler(console)
-sys.stdout = open('aws_lstm_log.txt', 'w')
+sys.stdout = open('aws_rnn_log.txt', 'a')
 
 
 """Check if lstm_data.csv exists, if no then create one, if yes then update it 
@@ -195,6 +195,7 @@ dt_df_last_nlags = scaler.transform(dt_df_last_nlags)  # df is now a numpy array
 X = dt_df_last_nlags.reshape(dt_df_last_nlags.shape[0], 1, nlags)  # nlags=20
 today = datetime.today().strftime(format="%d-%m-%Y")
 models = ["RNN", "LSTM", "GRU"]
+# models = ["LSTM"]
 
 
 for model_name in models:

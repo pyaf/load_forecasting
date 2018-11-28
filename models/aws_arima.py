@@ -90,11 +90,10 @@ else:  # scrap for last 30 days, prepare monthdata.csv
     data = get_data()
 
 
-
 logger.info(data.shape)
 data = data.asfreq(freq="30Min", method="bfill")  # sample the data in hourly manner
 
-initialize the model
+# initialize the model
 model = sm.tsa.statespace.SARIMAX(
     data,
     order=(3, 1, 1),
@@ -111,7 +110,7 @@ logger.info("Model fitting done!!")
 logger.info(model.summary().tables[1])
 logger.info(model.summary())
 
-save the model
+# save the model
 model.save("ARIMA_month_model.pkl")
 # model = ARIMAResults.load('ARIMA_month_model.pkl')
 # generate the predictions

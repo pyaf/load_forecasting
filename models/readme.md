@@ -2,15 +2,15 @@
 
 Models implemented during the course of the project:
 
-* Feed forward Neural Network (FFNN.ipynb)[FFNN.ipynb]
-* Simple Moving Average (SMA.ipynb)[SMA.ipynb]
-* Weighted Moving Average (WMA.ipynb)[WMA.ipynb]
-* Simple Exponential Smoothing (SES.ipynb)[SES.ipynb]
-* Holts Winters (SW.ipynb)[SW.ipynb]
-* ARIMA (ARIMA.ipynb)[ARIMA.ipynb]
-* Recurrent Neural Networks (RNN.ipynb)[RNN.ipynb]
-* Long Short Term Memory cells (LSTM.ipynb)[LSTM.ipynb]
-* Gated Recurrent Unit cells (GRU.ipynb)[GRU.ipynb]
+* Feed forward Neural Network [FFNN.ipynb](FFNN.ipynb)
+* Simple Moving Average [SMA.ipynb](SMA.ipynb)
+* Weighted Moving Average [WMA.ipynb](WMA.ipynb)
+* Simple Exponential Smoothing [SES.ipynb](SES.ipynb)
+* Holts Winters [SW.ipynb](SW.ipynb)
+* Autoregressive Integrated Moving Average [ARIMA.ipynb](ARIMA.ipynb)
+* Recurrent Neural Networks [RNN.ipynb](RNN.ipynb)
+* Long Short Term Memory cells [LSTM.ipynb](LSTM.ipynb)
+* Gated Recurrent Unit cells [GRU.ipynb](GRU.ipynb)
 
 
 Utility scripts
