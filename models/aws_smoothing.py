@@ -28,10 +28,10 @@ data = pd.read_csv(
     parse_dates=["datetime"],
     infer_datetime_format=True,
 )
-today = datetime.strptime(
-    data.index[-1].strftime("%d-%m-%Y %H:%M"), "%d-%m-%Y %H:%M"
-) + timedelta(1)
-date = today.strftime("%d-%m-%Y")
+# import pdb; pdb.set_trace()
+print(data.index[-1])
+date = datetime.today().date().strftime("%d-%m-%Y")
+print('date today:', date)
 load = data["load"].values
 pred = [0] * n
 for i in range(n):

@@ -1,4 +1,4 @@
-#!/home/eee/ug/15084015/miniconda3/envs/TF/bin/python
+#!/home/eee/ug/15084015/miniconda3/envs/ML/bin/python
 """
 The script is to run half an hour after midnight. Scrap last day's data and update monthsdata.csv
 """
@@ -65,9 +65,8 @@ logger.addHandler(console)
 as the model is to be trained on last 30 days of data."""
 if os.path.exists("monthdata.csv"):
     data = get_data()
-    if (
-        datetime.today() - timedelta(1)
-    ).date() not in data.index.date:  # yesterdays data not present, scrap it
+    # import pdb; pdb.set_trace()
+    if (datetime.today() - timedelta(1)).date().strftime('%Y-%m-%d') == str(data.index.date[-1]):  # yesterdays data not present, scrap it
         # only need to scrap for yesterday's data and append it to already existing file
         yesterday = datetime.today() - timedelta(1)
         yesterday = yesterday.strftime("%d/%m/%Y")
@@ -76,7 +75,7 @@ if os.path.exists("monthdata.csv"):
         data = get_data()
         day_to_clip_from = datetime.today() - timedelta(30)
         logger.info("Clipping data from " + day_to_clip_from.strftime("%d/%m/%Y"))
-        data = data[day_to_clip_from.strftime("%d/%m/%Y") :]
+        data = data[day_to_clip_from.strftime("%d/%m/%Y"):]
         data.to_csv(
             "monthdata.csv", header=False
         )  # IMP: don't add any header to the monthdata.csv
@@ -89,7 +88,7 @@ else:  # scrap for last 30 days, prepare monthdata.csv
         get_load_data(yesterday)
     data = get_data()
 
-
+# exit()
 logger.info(data.shape)
 data = data.asfreq(freq="30Min", method="bfill")  # sample the data in hourly manner
 
@@ -113,20 +112,25 @@ logger.info(model.summary())
 # save the model
 model.save("ARIMA_month_model.pkl")
 # model = ARIMAResults.load('ARIMA_month_model.pkl')
+# import pdb; pdb.set_trace()
 # generate the predictions
 todays_date = datetime.today().strftime("%d/%m/%Y")
 tommorows_date = (datetime.today() + timedelta(1)).strftime("%d/%m/%Y")
+# pred = model.get_prediction(
+#     start=data.shape[0]-9,  # rolling mean of window 10 to be applied
+#     end=data.shape[0]+48-1,  # predict next 48 values (half hourly, for 24 hours), last value to be removed 
+#     dynamic=False,
+# )
 pred = model.get_prediction(
-    start=pd.to_datetime("%s 00:00:00" % todays_date),
-    end=pd.to_datetime("%s 00:00:00" % tommorows_date),
+    start=data.shape[0],  # rolling mean of window 10 to be applied
+    end=data.shape[0]+48,  # predict next 48 values (half hourly, for 24 hours), last value to be removed 
     dynamic=False,
 )
-
 # save the pridictions in a csv file
 predictions = pred.predicted_mean
 predictions = predictions.asfreq(freq="5Min", method="bfill")  # set to 5 min freq
 date = datetime.today().strftime(format="%d-%m-%Y")
-predictions = predictions.rolling(window=10).mean()
+# predictions = predictions.rolling(window=10).mean().dropna()
 predictions.to_csv(
     "predictions/ARIMA/%s.csv" % date, index_label="datetime", header=["load"]
 )

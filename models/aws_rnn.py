@@ -131,7 +131,7 @@ as the model is to be trained on last 60 days of data."""
 if os.path.exists("lstm_data.csv"):
     data = get_data()
     # yesterdays data not present, scrap it
-    if (datetime.today() - timedelta(1)).date() not in data.index.date:
+    if (datetime.today() - timedelta(1)).date().strftime('%Y-%m-%d') == str(data.index.date[-1]):
         # only need to scrap for yesterday's data and append it to already existing file
         yesterday = datetime.today() - timedelta(1)
         yesterday = yesterday.strftime("%d/%m/%Y")
@@ -194,9 +194,7 @@ dt_df_last_nlags = df_last_nlags_plus_one.diff(1, axis=1).dropna(axis=1)
 dt_df_last_nlags = scaler.transform(dt_df_last_nlags)  # df is now a numpy array
 X = dt_df_last_nlags.reshape(dt_df_last_nlags.shape[0], 1, nlags)  # nlags=20
 today = datetime.today().strftime(format="%d-%m-%Y")
-models = ["RNN", "LSTM", "GRU"]
-# models = ["LSTM"]
-
+models = ["LSTM", "RNN", "GRU"]
 
 for model_name in models:
     logger.info("%s training started" % model_name)
