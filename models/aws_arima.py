@@ -1,4 +1,4 @@
-#!/home/eee/ug/15084015/miniconda3/envs/ML/bin/python
+#!/home/eee/ug/15084015/miniconda3/envs/aws/bin/python
 """
 The script is to run half an hour after midnight. Scrap last day's data and update monthsdata.csv
 """
@@ -66,7 +66,7 @@ as the model is to be trained on last 30 days of data."""
 if os.path.exists("monthdata.csv"):
     data = get_data()
     # import pdb; pdb.set_trace()
-    if (datetime.today() - timedelta(1)).date().strftime('%Y-%m-%d') == str(data.index.date[-1]):  # yesterdays data not present, scrap it
+    if (datetime.today() - timedelta(1)).date().strftime('%Y-%m-%d') != str(data.index.date[-1]):  # yesterdays data not present, scrap it
         # only need to scrap for yesterday's data and append it to already existing file
         yesterday = datetime.today() - timedelta(1)
         yesterday = yesterday.strftime("%d/%m/%Y")

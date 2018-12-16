@@ -1,4 +1,4 @@
-#!/home/eee/ug/15084015/miniconda3/envs/TF/bin/python
+#!/home/eee/ug/15084015/miniconda3/envs/aws/bin/python
 """The script is to run half an hour after midnight. Scrap last day's data and update lstm_data.csv"""
 import os
 import sys
@@ -200,6 +200,7 @@ for model_name in models:
     logger.info("%s training started" % model_name)
     model = get_model(model_name)
     logger.info(model.summary())
+    print(model.summary())
     for i in range(15):
         history = model.fit(
             train_x,
