@@ -28,14 +28,37 @@ const fun1  = function(data){
         // console.log('asdgf',data);
         // console.log("ooooooooooooooooooooooooooooooo");
         let load = data;
-        console.log("zzzzzzzzzzzzzzz",load.rmsesmavg);
+        console.log("zzzzzzzzzzzzzzz",load.rmseSMA);
         console.log(load.forecasted_Load);
-        var x1 = document.getElementById('smavg1');
-        x1.innerHTML = load.rmsesmavg;
-        var y1 = document.getElementById('wmavg1');
-        y1.innerHTML = load.rmsewmavg;
-        var z1 = document.getElementById('ses1');
-        z1.innerHTML = load.rmseses;
+        var a1 = document.getElementById('sma1');
+        a1.innerHTML = load.rmseSMA;
+        var b1 = document.getElementById('wma1');
+        b1.innerHTML = load.rmseWMA;
+        var c1 = document.getElementById('ses1');
+        c1.innerHTML = load.rmseSES;
+        var d1 = document.getElementById('arima1');
+        d1.innerHTML = load.rmseARIMA;
+        var e1 = document.getElementById('lstm1');
+        e1.innerHTML = load.rmseLSTM;
+        var f1 = document.getElementById('gru1');
+        f1.innerHTML = load.rmseGRU;
+        var g1 = document.getElementById('rnn1');
+        g1.innerHTML = load.rmseRNN;
+
+        var a1M = document.getElementById('sma1M');
+        a1M.innerHTML = load.mapeSMA;
+        var b1M = document.getElementById('wma1M');
+        b1M.innerHTML = load.mapeWMA;
+        var c1M = document.getElementById('ses1M');
+        c1M.innerHTML = load.mapeSES;
+        var d1M = document.getElementById('arima1M');
+        d1M.innerHTML = load.mapeARIMA;
+        var e1M = document.getElementById('lstm1M');
+        e1M.innerHTML = load.mapeLSTM;
+        var f1M = document.getElementById('gru1M');
+        f1M.innerHTML = load.mapeGRU;
+        var g1M = document.getElementById('rnn1M');
+        g1M.innerHTML = load.mapeRNN;
         //   let datee = (parseInt(tarikh[8]+tarikh[9]) + i).toString() + '-' + tarikh[5]+tarikh[6] +'-'+tarikh[0]+tarikh[1]+tarikh[2]+tarikh[3];
         var chart = c3.generate({
           bindto: '#Forecasting',

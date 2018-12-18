@@ -40,6 +40,10 @@
     font-size: 18px;
     fill: gray;
   }
+  /*line {
+    stroke-width: 100px;
+  }*/
+
   </style>
   <title>Delhi Load Data</title>
 
@@ -59,7 +63,7 @@
 <body >
 
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-  <a class="navbar-brand" href="#">Load and Price Forcasting</a>
+  <a class="navbar-brand" href="#">Load Forcasting</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -88,14 +92,33 @@
       <th>SMA</th>
       <th>WMA</th>
       <th>SES</th>
+      <th>ARIMA</th>
+      <th>LSTM</th>
+      <th>GRU</th>
+      <th>RNN</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>RMSE (in MW)</td>
-      <td colspan="1" id='smavg'>Wait</td>
-      <td colspan="1" id='wmavg'>Wait</td>
+      <td colspan="1" id='sma'>Wait</td>
+      <td colspan="1" id='wma'>Wait</td>
       <td colspan="1" id='ses'>Wait</td>
+      <td colspan="1" id='arima'>Wait</td>
+      <td colspan="1" id='lstm'>Wait</td>
+      <td colspan="1" id='gru'>Wait</td>
+      <td colspan="1" id='rnn'>Wait</td>
+    </tr>
+
+    <tr>
+      <td>MAPE (in %)</td>
+      <td colspan="1" id='smaM'>Wait</td>
+      <td colspan="1" id='wmaM'>Wait</td>
+      <td colspan="1" id='sesM'>Wait</td>
+      <td colspan="1" id='arimaM'>Wait</td>
+      <td colspan="1" id='lstmM'>Wait</td>
+      <td colspan="1" id='gruM'>Wait</td>
+      <td colspan="1" id='rnnM'>Wait</td>
     </tr>
   </tbody>
 </table>
@@ -126,21 +149,45 @@ $(document).ready(function(){
     success: function(x){
       console.log(x);
       fun2(x);
+      console.log('kumar');
     },
   });
 });
-
 const fun2  = function(data){
-        // console.log('asdgf',data);
-        // console.log("ooooooooooooooooooooooooooooooo");
+        console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+        console.log('asdgf',data);
+        console.log("ooooooooooooooooooooooooooooooo");
         let load = data;
-        // console.log(load.forecasted_Load);
-        var x = document.getElementById('smavg');
-        x.innerHTML = load.rmsesmavg;
-        var y = document.getElementById('wmavg');
-        y.innerHTML = load.rmsewmavg;
-        var z = document.getElementById('ses');
-        z.innerHTML = load.rmseses;
+        console.log(load.forecasted_Load);
+        var a = document.getElementById('sma');
+        a.innerHTML = load.rmseSMA;
+        var b = document.getElementById('wma');
+        b.innerHTML = load.rmseWMA;
+        var c = document.getElementById('ses');
+        c.innerHTML = load.rmseSES;
+        var d = document.getElementById('arima');
+        d.innerHTML = load.rmseARIMA;
+        var e = document.getElementById('lstm');
+        e.innerHTML = load.rmseLSTM;
+        var f = document.getElementById('gru');
+        f.innerHTML = load.rmseGRU;
+        var g = document.getElementById('rnn');
+        g.innerHTML = load.rmseRNN;
+
+        var aM = document.getElementById('smaM');
+        aM.innerHTML = load.mapeSMA;
+        var bM = document.getElementById('wmaM');
+        bM.innerHTML = load.mapeWMA;
+        var cM = document.getElementById('sesM');
+        cM.innerHTML = load.mapeSES;
+        var dM = document.getElementById('arimaM');
+        dM.innerHTML = load.mapeARIMA;
+        var eM = document.getElementById('lstmM');
+        eM.innerHTML = load.mapeLSTM;
+        var fM = document.getElementById('gruM');
+        fM.innerHTML = load.mapeGRU;
+        var gM = document.getElementById('rnnM');
+        gM.innerHTML = load.mapeRNN;
         //   let datee = (parseInt(tarikh[8]+tarikh[9]) + i).toString() + '-' + tarikh[5]+tarikh[6] +'-'+tarikh[0]+tarikh[1]+tarikh[2]+tarikh[3];
         var chart = c3.generate({
           bindto: '#ope',
@@ -148,6 +195,9 @@ const fun2  = function(data){
             x: 'x',
             xFormat:'%H:%M',
             columns: load.forecasted_Load,
+          },
+          color: {
+            pattern: ['#1f77b4', '#FF0000', '#ff7f0e', '#8B0000', '#2ca02c', '#00FFFF', '#d62728', '#000000']
           },
           axis: {
             y: {
@@ -310,20 +360,47 @@ function getCookie(name) {
       <th>SMA</th>
       <th>WMA</th>
       <th>SES</th>
+      <th>ARIMA</th>
+      <th>LSTM</th>
+      <th>GRU</th>
+      <th>RNN</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>RMSE (in MW)</td>
-      <td colspan="1" id='smavg1'>Choose a Date</td>
-      <td colspan="1" id='wmavg1'>Choose a Date</td>
+      <td colspan="1" id='sma1'>Choose a Date</td>
+      <td colspan="1" id='wma1'>Choose a Date</td>
       <td colspan="1" id='ses1'>Choose a Date</td>
+      <td colspan="1" id='arima1'>Choose a Date</td>
+      <td colspan="1" id='lstm1'>Choose a Date</td>
+      <td colspan="1" id='gru1'>Choose a Date</td>
+      <td colspan="1" id='rnn1'>Choose a Date</td>
     </tr>
+
+    <tr>
+      <td>MAPE (in %)</td>
+      <td colspan="1" id='sma1M'>Choose a Date</td>
+      <td colspan="1" id='wma1M'>Choose a Date</td>
+      <td colspan="1" id='ses1M'>Choose a Date</td>
+      <td colspan="1" id='arima1M'>Choose a Date</td>
+      <td colspan="1" id='lstm1M'>Choose a Date</td>
+      <td colspan="1" id='gru1M'>Choose a Date</td>
+      <td colspan="1" id='rnn1M'>Choose a Date</td>
+    </tr>
+
   </tbody>
 </table>
+
+
+
+
 <script src = "/static/main1.js"></script>
 
 </body>
+
+
+
 </html>
 
 <!-- </form> -->

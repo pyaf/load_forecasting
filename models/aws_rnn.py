@@ -1,4 +1,4 @@
-#!/home/eee/ug/15084015/miniconda3/envs/aws/bin/python
+#!/home/eee/ug/15084015/miniconda3/envs/btp/bin/python
 """The script is to run half an hour after midnight. Scrap last day's data and update lstm_data.csv"""
 import os
 import sys
