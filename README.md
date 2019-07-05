@@ -6,15 +6,15 @@ Under graduate project on short term electric load forecasting. Data was taken f
 
 `models` folder contains all the algorithms/models implemented during the course of the project:
 
-* Feed forward Neural Network [FFNN.ipynb](FFNN.ipynb)
-* Simple Moving Average [SMA.ipynb](SMA.ipynb)
-* Weighted Moving Average [WMA.ipynb](WMA.ipynb)
-* Simple Exponential Smoothing [SES.ipynb](SES.ipynb)
-* Holts Winters [HW.ipynb](HW.ipynb)
-* Autoregressive Integrated Moving Average [ARIMA.ipynb](ARIMA.ipynb)
-* Recurrent Neural Networks [RNN.ipynb](RNN.ipynb)
-* Long Short Term Memory cells [LSTM.ipynb](LSTM.ipynb)
-* Gated Recurrent Unit cells [GRU.ipynb](GRU.ipynb)
+* Feed forward Neural Network [FFNN.ipynb](models/FFNN.ipynb)
+* Simple Moving Average [SMA.ipynb](models/SMA.ipynb)
+* Weighted Moving Average [WMA.ipynb](models/WMA.ipynb)
+* Simple Exponential Smoothing [SES.ipynb](models/SES.ipynb)
+* Holts Winters [HW.ipynb](models/HW.ipynb)
+* Autoregressive Integrated Moving Average [ARIMA.ipynb](models/ARIMA.ipynb)
+* Recurrent Neural Networks [RNN.ipynb](models/RNN.ipynb)
+* Long Short Term Memory cells [LSTM.ipynb](models/LSTM.ipynb)
+* Gated Recurrent Unit cells [GRU.ipynb](models/GRU.ipynb)
 
 scripts:
 
