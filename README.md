@@ -26,7 +26,7 @@ scripts:
 * `load_scrap.py` scraps day wise load data of Delhi from [SLDC](https://www.delhisldc.org/Loaddata.aspx?mode=17/01/2018) site and stores it in csv format.
 * `wheather_scrap.py` scraps day wise whether data of Delhi from [wunderground](https://www.wunderground.com/history/airport/VIDP/2017/8/1/DailyHistory.html) site and stores it in csv format.
 
-`server` folder contains django webserver code, developed to show the implemented algorithms and compare their performance. All the implemented algorithms are being used to forecast today's Delhi electricity load [here](http://forecast.energyandsystems.com). Project report can be found in [Report](Report) folder. 
+`server` folder contains django webserver code, developed to show the implemented algorithms and compare their performance. All the implemented algorithms are being used to forecast today's Delhi electricity load [here](http://forecast.energyandsystems.com) [now deprecated]. Project report can be found in [Report](Report) folder. 
 
 ![A screenshot of the website](screenshots/website.png "A screenshot of the website")
 
