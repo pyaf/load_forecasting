@@ -18,7 +18,7 @@ patsy==0.5.1
 protobuf==3.6.1
 python-dateutil==2.7.5
 pytz==2018.7
-PyYAML==3.13
+PyYAML==5.4
 requests==2.21.0
 schedule==0.5.0
 scikit-learn==0.20.1
