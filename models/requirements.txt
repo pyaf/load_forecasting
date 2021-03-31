@@ -10,7 +10,7 @@ idna==2.8
 Keras==2.2.4
 Keras-Applications==1.0.6
 Keras-Preprocessing==1.0.5
-lxml==4.2.5
+lxml==4.6.3
 Markdown==3.0.1
 numpy==1.15.4
 pandas==0.23.4
