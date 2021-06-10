@@ -6,7 +6,7 @@ bs4==0.0.1
 celery==3.1.18
 certifi==2018.1.18
 chardet==3.0.4
-Django==2.0.2
+Django==2.2.24
 idna==2.6
 kombu==3.0.37
 lxml
