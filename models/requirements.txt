@@ -15,7 +15,7 @@ Markdown==3.0.1
 numpy==1.15.4
 pandas==0.23.4
 patsy==0.5.1
-protobuf==3.6.1
+protobuf==3.15.0
 python-dateutil==2.7.5
 pytz==2018.7
 PyYAML==3.13
