@@ -37,3 +37,7 @@ scripts:
 * Boragapu Sunil Kumar
 * Srimukha Paturi
 * Rishabh Agrahari
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=pyaf/load_forecasting&type=Date)](https://star-history.com/#pyaf/load_forecasting&Date)
